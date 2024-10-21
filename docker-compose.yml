@@ -11,6 +11,9 @@ services:
       - pleroma-db
     ports:
       - "127.0.0.1:4000:4000"
+    networks:
+      - internal_network
+      - external_network
     volumes:
       - ./volumes/pleroma/config.exs:/var/lib/pleroma/config.exs
       - ./volumes/pleroma/uploads:/var/lib/pleroma/uploads
@@ -24,9 +27,13 @@ services:
       - "org.label-schema.group=pleroma"
     restart: always
     env_file: ./environments/pleroma-db/postgres.env
-    ports:
-      - "127.0.0.1:5432:5432"
+    networks:
+      - internal_network
     volumes:
       - ./volumes/pleroma-db/pgdata:/var/lib/postgresql/data
       - ./volumes/pleroma-db/pginit:/docker-entrypoint-initdb.d
 
+networks:
+  internal_network:
+    internal: true
+  external_network:
