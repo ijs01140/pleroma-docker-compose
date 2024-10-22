@@ -1,2 +1,3 @@
-environments/*.env
+environments/pleroma/pleroma.env
+environments/pleroma-db/postgres.env
 volumes/pleroma/config.exs
