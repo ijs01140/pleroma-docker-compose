@@ -33,6 +33,18 @@ services:
       - ./volumes/pleroma-db/pgdata:/var/lib/postgresql/data
       - ./volumes/pleroma-db/pginit:/docker-entrypoint-initdb.d
 
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    user: root
+    restart: always
+    env_file: ./environments/cloudflared/cloudflared.env
+    command: tunnel --no-autoupdate run
+    depends_on:
+      - pleroma
+    networks:
+      - external_network
+      - internal_network
+
 networks:
   internal_network:
     internal: true
