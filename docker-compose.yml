@@ -9,8 +9,6 @@ services:
     env_file: ./environments/pleroma/pleroma.env
     depends_on:
       - pleroma-db
-    ports:
-      - "127.0.0.1:4000:4000"
     networks:
       - internal_network
       - external_network
