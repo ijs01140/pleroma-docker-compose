@@ -2,3 +2,4 @@ environments/pleroma/pleroma.env
 environments/pleroma-db/postgres.env
 environments/cloudflared/cloudflared.env
 volumes/pleroma/config.exs
+volumes/pleroma/uploads
