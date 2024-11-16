@@ -1,6 +1,6 @@
 services:
   pleroma:
-    image: git.pleroma.social:5050/pleroma/pleroma:stable
+    image: ijs01140/pleroma:stable
     container_name: "pleroma"
     hostname: "pleroma"
     labels:
